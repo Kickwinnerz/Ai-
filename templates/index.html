@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upgraded AI Platform</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="nav">
+  <button onclick="showTab('chat')">Chat</button>
+  <button onclick="showTab('image')">Image</button>
+  <button onclick="showTab('video')">Video</button>
+  <button onclick="showTab('voice')">Voice</button>
+  <button onclick="showTab('tools')">Tools</button>
+</div>
+
+<!-- Chat -->
+<div id="chat" class="tab-content">
+  <h2>AI Chat</h2>
+  <div id="chat-box"></div>
+  <input type="text" id="user-input" placeholder="Type your message...">
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<!-- Image -->
+<div id="image" class="tab-content" style="display:none;">
+  <h2>Image Generation</h2>
+  <input type="text" id="image-prompt" placeholder="Describe your image...">
+  <select id="image-style">
+    <option>Realistic</option>
+    <option>Cartoon</option>
+    <option>Anime</option>
+    <option>Abstract</option>
+  </select>
+  <select id="image-size">
+    <option>256x256</option>
+    <option selected>512x512</option>
+    <option>1024x1024</option>
+  </select>
+  <button onclick="generateImage()">Generate</button>
+  <div id="image-result"></div>
+</div>
+
+<!-- Video -->
+<div id="video" class="tab-content" style="display:none;">
+  <h2>Video Generation</h2>
+  <input type="text" id="video-prompt" placeholder="Describe your video...">
+  <select id="video-style">
+    <option>Realistic</option>
+    <option>Cartoon</option>
+    <option>Cinematic</option>
+  </select>
+  <button onclick="generateVideo()">Generate</button>
+  <div id="video-result"></div>
+</div>
+
+<!-- Voice -->
+<div id="voice" class="tab-content" style="display:none;">
+  <h2>Voice Chat</h2>
+  <select id="voice-lang">
+    <option value="en-US">English</option>
+    <option value="es-ES">Spanish</option>
+    <option value="fr-FR">French</option>
+  </select>
+  <button onclick="startVoice()">Start Speaking</button>
+  <div id="voice-result"></div>
+</div>
+
+<!-- Tools -->
+<div id="tools" class="tab-content" style="display:none;">
+  <h2>Extra AI Tools</h2>
+
+  <h3>Summarize Text</h3>
+  <textarea id="summarize-text"></textarea>
+  <button onclick="summarizeText()">Summarize</button>
+  <div id="summary-result"></div>
+
+  <h3>Translate Text</h3>
+  <textarea id="translate-text"></textarea>
+  <input type="text" id="translate-lang" placeholder="Language e.g. French">
+  <button onclick="translateText()">Translate</button>
+  <div id="translate-result"></div>
+
+  <h3>Code Assistant</h3>
+  <textarea id="code-prompt"></textarea>
+  <button onclick="generateCode()">Generate Code</button>
+  <div id="code-result"></div>
+
+  <h3>Code Explanation</h3>
+  <textarea id="explain-code"></textarea>
+  <button onclick="explainCode()">Explain Code</button>
+  <div id="explain-result"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
