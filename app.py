@@ -3,7 +3,7 @@ import openai
 import os
 
 app = Flask(__name__)
-openai.api_key = "YOUR_OPENAI_API_KEY"  # Apna key dal do
+openai.api_key = "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"  # Apna key dal do
 
 @app.route('/')
 def index():
@@ -85,4 +85,5 @@ def explain_code():
     return jsonify({"explanation": response.choices[0].message['content']})
 
 if __name__ == "__main__":
+
     app.run(debug=True)
